@@ -1,0 +1,123 @@
+.App {
+  text-align: center;
+  display: flex;
+}
+
+.pd10 {
+  padding: 10px;
+}
+
+.muslim_show {
+  margin-bottom: 1.5rem;
+}
+
+.bluebox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #51aabc;
+  align-items: center;
+  border-radius: 14px;
+  flex: 1;
+  margin-bottom: 2rem;
+  padding: 1rem 2rem 1.2rem 2rem;
+  span {
+    color: #fff;
+    font-size: 21px;
+  }
+}
+
+.BDList-container {
+  display: flex;
+  flex: 3;
+  padding: 2.5rem 5rem;
+  background-color: #363636;
+  overflow-y: auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.BD-container {
+  display: flex;
+  width: 20%;
+  padding: 15px 20px;
+  padding-top: 0px;
+  flex-direction: column;
+  img {
+    border-radius: 5px;
+    width: 100%;
+  }
+  span {
+    padding-top: 5px;
+    font-size: 15px;
+  }
+  .title {
+    color: #fff;
+  }
+  .date {
+    color: #808080;
+  }
+}
+
+.Sidebar {
+  color: #fff;
+  flex: 1;
+  position: sticky;
+  padding: 25px 30px;
+  background-color: #000;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.fs20 {
+  font-size: 20px;
+}
+
+.hoopow_menu {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  .menu {
+    padding: 21px 15px;
+    margin-right: 18px;
+    border-radius: 15px;
+    background-color: #fff;
+  }
+  .logo {
+  }
+}
+
+body {
+  // overflow: hidden;
+}
+
+.subscribe_container {
+  background-color: #51aabc;
+  padding: 20px 0px 0px 0px;
+  border-radius: 15px;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  span {
+    font-size: 1.8rem;
+  }
+  .subscribe_button {
+    background-color: #ffc600;
+    padding: 0px 5px;
+    font-size: 1.5rem;
+  }
+  .image_container {
+    position: relative;
+  }
+  .subscribe_man {
+    padding-left: 35%;
+  }
+  .already_subscribed {
+    position: absolute;
+    left: 40px;
+    bottom: 35%;
+    font-size: 17px;
+  }
+}
