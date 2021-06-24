@@ -1,57 +1,57 @@
-import React, { useState } from 'react';
 import './App.scss';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import SideBar from './components/sidebar';
+import BDPage from './pages/BDPage';
+import { BD_List_TYPE } from './types';
 
 function App() {
-  const [BDList, setBDList] = useState([
-    1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 4, 5, 5, 3, 2, 2, 2, 3, 4,
-  ]);
-  axios({
-    url: 'https://api.jsonbin.io/b/60d15d6c8ea8ec25bd12c083',
-    method: 'get',
-    headers: {},
-  })
-    .then((response) => {
-      console.log(response);
-      setBDList(response.data);
-    })
-    .catch((e) => {
-      console.log(e);
-    });
-  // axios({
-  //   url: 'https://d1628i5d9ecuu5.cloudfront.net/images/MSHOW_01_ADDITION_01.jpg',
-  //   method: 'get',
-  //   headers: {
-  //     // 'secret-key':
-  //     //   '$2b$10$CpVUDj0M04SrpvTHOlz0Kup12rM2KFWDtuEf.wpY5HwYB6BBSrfCS',
-  //   },
-  // })
-  //   .then((r) => console.log(r))
-  //   .catch((e) => console.error(e));
-
+  const [BDList, setBDList] = useState<BD_List_TYPE>([]);
+  const [triggered, setTriggered] = useState(false);
+  useEffect(() => {
+    const fetchData = () => {
+      if (triggered) return;
+      axios({
+        url: 'https://api.jsonbin.io/b/60d013655ed58625fd1592ef',
+        method: 'get',
+        headers: {
+          'secret-key':
+            '$2b$10$CpVUDj0M04SrpvTHOlz0Kup12rM2KFWDtuEf.wpY5HwYB6BBSrfCS',
+        },
+      })
+        .then((response) => {
+          setTriggered(true);
+          response.data = response.data.sort(
+            (a: { lockedTimestamp: number }, b: { lockedTimestamp: number }) =>
+              b.lockedTimestamp - a.lockedTimestamp
+          );
+          setBDList(response.data);
+        })
+        .catch((e) => {
+          console.log(e);
+          setTriggered(true);
+        });
+    };
+    fetchData();
+    setTriggered(true);
+  }, [triggered]);
   return (
     <html>
-      <body>
-        <div className="App">
-          <SideBar />
-          <div className="BDList-container" id="scroll-container">
-            {BDList.map((BD, index) => (
-              <div key={index} className="BD-container">
-                <img
-                  src={
-                    'https://d1628i5d9ecuu5.cloudfront.net/images/MSHOW_01_ADDITION_01.jpg'
-                  }
-                  alt="muslim show"
-                />
-                <span className="bold date">
-                  Lundi 12 -<span className="bold title"> Trop tôt ?</span>
-                </span>
-              </div>
-            ))}
+      <Router>
+        <body>
+          <div className="App">
+            <Switch>
+              <Route exact path="/">
+                <Home BDList={BDList} />
+              </Route>
+              <Route path="/BD">
+                <BDPage BDList={BDList} />
+              </Route>
+            </Switch>
           </div>
-        </div>
-      </body>
+        </body>
+      </Router>
     </html>
   );
 }

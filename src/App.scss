@@ -1,44 +1,176 @@
 .App {
   text-align: center;
   display: flex;
-}
-
-.pd10 {
-  padding: 10px;
-}
-
-.muslim_show {
-  margin-bottom: 1.5rem;
-}
-
-.bluebox {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #51aabc;
-  align-items: center;
-  border-radius: 14px;
   flex: 1;
-  margin-bottom: 2rem;
-  padding: 1rem 2rem 1.2rem 2rem;
-  span {
-    color: #fff;
-    font-size: 21px;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+.fullscreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  flex: 1;
+  height: 100vh;
+  .close-fullscreen {
+    padding: 0px 20px 20px 0px;
+    position: absolute;
+    bottom: 0px;
+    width: 5vw;
+    left: 30vh;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .image {
+    flex: 1;
+    width: 100vh;
+    height: 100vh;
+  }
+  background-color: black;
+}
+.BDPage-container {
+  display: flex;
+  flex: 3;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 5% 10px;
+  background-color: #363636;
+  .top-bar {
+    position: absolute;
+    display: flex;
+    top: 10px;
+    border-end-start-radius: 14px;
+    background-color: #51aabc;
+    right: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 21px 15px;
+    .BD_DU_JOUR {
+      font-size: 18px;
+      font-weight: bold;
+      padding: 0px 20px 0px 40px;
+    }
+    .for_free {
+      font-size: 16px;
+    }
+    span {
+      color: #fff;
+      text-align: center;
+    }
+  }
+  .pointer {
+    margin: 5px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: grey;
+    &.active {
+      background-color: white;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .BD-list {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    right: 10px;
+    position: sticky;
+    padding: 0px 10px;
+    overflow-x: hidden;
+    .overlay {
+      background-color: #000;
+      opacity: 0.5;
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      margin-top: 5px;
+      left: 0px;
+      right: 0px;
+    }
+    .BD-right {
+      position: relative;
+      text-decoration: none;
+      color: #fff;
+      padding: 5px 0px;
+      img {
+        width: 18vh;
+        height: 18vh;
+      }
+      span {
+        width: 18vh;
+      }
+    }
+  }
+  .slide-container {
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin-top: 20px;
+    img {
+      height: 80vh;
+      width: 80vh;
+    }
+  }
+  .disable {
+    visibility: hidden;
+    cursor: auto;
+  }
+}
+.arrow-container {
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  flex: 1;
+  display: flex;
+  .arrow {
+    padding: 10px;
+    border-radius: 100px;
+    max-width: 40px;
+    min-width: 40px;
+    height: 40px;
+    background-color: #fff8;
+    &:hover {
+      cursor: pointer;
+    }
+    &.left {
+      transform: rotate(180deg);
+    }
   }
 }
 
 .BDList-container {
   display: flex;
   flex: 3;
+  margin: 10px;
+  border-radius: 10px;
   padding: 2.5rem 5rem;
   background-color: #363636;
-  overflow-y: auto;
+  overflow-y: scroll;
   flex-wrap: wrap;
   flex-direction: row;
+}
+body {
+  background-color: #000;
 }
 .BD-container {
   display: flex;
   width: 20%;
+  text-decoration: none;
   padding: 15px 20px;
   padding-top: 0px;
   flex-direction: column;
@@ -48,22 +180,16 @@
   }
   span {
     padding-top: 5px;
-    font-size: 15px;
+    font-size: 13px;
+    text-transform: capitalize;
   }
   .title {
+    text-transform: capitalize;
     color: #fff;
   }
   .date {
     color: #808080;
   }
-}
-
-.Sidebar {
-  color: #fff;
-  flex: 1;
-  position: sticky;
-  padding: 25px 30px;
-  background-color: #000;
 }
 
 .bold {
@@ -72,52 +198,4 @@
 
 .fs20 {
   font-size: 20px;
-}
-
-.hoopow_menu {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 25px;
-  .menu {
-    padding: 21px 15px;
-    margin-right: 18px;
-    border-radius: 15px;
-    background-color: #fff;
-  }
-  .logo {
-  }
-}
-
-body {
-  // overflow: hidden;
-}
-
-.subscribe_container {
-  background-color: #51aabc;
-  padding: 20px 0px 0px 0px;
-  border-radius: 15px;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: flex-start;
-  span {
-    font-size: 1.8rem;
-  }
-  .subscribe_button {
-    background-color: #ffc600;
-    padding: 0px 5px;
-    font-size: 1.5rem;
-  }
-  .image_container {
-    position: relative;
-  }
-  .subscribe_man {
-    padding-left: 35%;
-  }
-  .already_subscribed {
-    position: absolute;
-    left: 40px;
-    bottom: 35%;
-    font-size: 17px;
-  }
 }

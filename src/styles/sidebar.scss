@@ -1,0 +1,139 @@
+.Sidebar {
+  color: #fff;
+  flex: 1;
+  min-width: 20vw;
+  max-width: 20vw;
+  position: sticky;
+  padding: 20px 25px;
+  background-color: #000;
+  .bluebox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #51aabc;
+    align-items: center;
+    border-radius: 14px;
+    flex: 1;
+    margin-bottom: 20px;
+    padding: 20px 40px;
+    span {
+      color: #fff;
+      font-size: 17px;
+    }
+  }
+  .muslim_show {
+    img {
+      width: 20vw;
+    }
+    margin-bottom: 1.4rem;
+  }
+  .BD-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15% 0px 5px 0px;
+    img {
+      width: 80%;
+      border-radius: 5px;
+    }
+    span {
+      color: #fff;
+      padding-top: 5px;
+      font-size: 13px;
+      text-transform: capitalize;
+    }
+  }
+  .hoopow_menu {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    .menu {
+      padding: 20px 15px;
+      margin-right: 20px;
+      border-radius: 15px;
+      background-color: #fff;
+    }
+  }
+  .buttons_container {
+    padding-top: 10%;
+    .share_button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding-bottom: 30px;
+      &:hover {
+        cursor: pointer;
+      }
+      img {
+        width: 60px;
+        height: 60px;
+      }
+      span {
+        padding-top: 10px;
+        text-transform: uppercase;
+        font-size: 20px;
+        color: #fff;
+      }
+    }
+
+    .button {
+      &:hover {
+        cursor: pointer;
+      }
+      text-decoration: none;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px #fff solid;
+      border-radius: 42px;
+      padding: 13px 28px;
+      margin: 14px 0px;
+      position: relative;
+      img {
+        padding: 0px 10px 0px 20px;
+        position: absolute;
+        left: 10px;
+      }
+      span {
+        flex: 1;
+        color: #fff;
+        width: 100%;
+      }
+    }
+  }
+  .subscribe_container {
+    background-color: #51aabc;
+    padding: 20px 0px 0px 0px;
+    border-radius: 15px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    span {
+      font-size: 27px;
+    }
+
+    .subscribe_button {
+      background-color: #ffc600;
+      padding: 0px 5px;
+      font-size: 27px;
+    }
+    .image_container {
+      position: relative;
+      .subscribe_man {
+        padding-left: 45%;
+        height: 25vh;
+      }
+      .already_subscribed {
+        position: absolute;
+        left: 40px;
+        bottom: 35%;
+        font-size: 17px;
+      }
+    }
+  }
+}
