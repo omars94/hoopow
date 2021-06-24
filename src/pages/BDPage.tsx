@@ -33,8 +33,11 @@ export default function BDPage(props: { BDList: BD_List_TYPE }) {
       selectImage(selectedImage - 1);
     }
   };
+
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') {
+    if (e.key === 'Escape') {
+      changeFullscreen(false);
+    } else if (e.key === 'ArrowRight') {
       next();
     } else if (e.key === 'ArrowLeft') {
       previous();
