@@ -5,7 +5,11 @@
   max-height: 100vh;
   overflow: hidden;
 }
-
+.disable {
+  visibility: hidden;
+  opacity: 0;
+  cursor: auto;
+}
 .row {
   flex-direction: row;
 }
@@ -13,7 +17,7 @@
 .column {
   flex-direction: column;
 }
-.fullscreen {
+#fullscreen {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,10 +26,10 @@
   height: 100vh;
   .close-fullscreen {
     padding: 0px 20px 20px 0px;
-    position: absolute;
-    bottom: 0px;
+    bottom: -45%;
+
+    position: relative;
     width: 5vw;
-    left: 30vh;
     &:hover {
       cursor: pointer;
     }
@@ -126,11 +130,8 @@
       width: 80vh;
     }
   }
-  .disable {
-    visibility: hidden;
-    cursor: auto;
-  }
 }
+
 .arrow-container {
   justify-content: center;
   align-items: center;
