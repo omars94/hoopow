@@ -1,0 +1,14 @@
+@mixin flex($flex) {
+  display: flex;
+  flex: $flex;
+}
+@mixin center {
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin pointer {
+  &:hover {
+    cursor: pointer;
+  }
+}

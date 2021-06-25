@@ -1,3 +1,5 @@
+@import './styles/reusable_styles.scss';
+
 .App {
   text-align: center;
   display: flex;
@@ -18,11 +20,9 @@
   flex-direction: column;
 }
 #fullscreen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex(1);
+  @include center;
   width: 100vw;
-  flex: 1;
   height: 100vh;
   .close-fullscreen {
     padding: 0px 20px 20px 0px;
@@ -30,9 +30,7 @@
 
     position: relative;
     width: 5vw;
-    &:hover {
-      cursor: pointer;
-    }
+    @include pointer;
   }
   .image {
     flex: 1;
@@ -50,13 +48,12 @@
   background-color: #363636;
   .top-bar {
     position: absolute;
-    display: flex;
+    @include flex(1);
+    @include center;
     top: 10px;
     border-end-start-radius: 14px;
     background-color: #51aabc;
     right: 10px;
-    align-items: center;
-    justify-content: center;
     padding: 21px 15px;
     .BD_DU_JOUR {
       font-size: 18px;
@@ -81,16 +78,12 @@
     &.active {
       background-color: white;
     }
-    &:hover {
-      cursor: pointer;
-    }
+    @include pointer;
   }
   .BD-list {
-    display: flex;
-    flex: 1;
+    @include flex(1);
+    @include center;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin-top: 15px;
     right: 10px;
     position: sticky;
@@ -121,9 +114,9 @@
     }
   }
   .slide-container {
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+    @include flex(1);
+    display: block;
+    @include center;
     margin-top: 20px;
     img {
       height: 80vh;
@@ -133,11 +126,9 @@
 }
 
 .arrow-container {
-  justify-content: center;
-  align-items: center;
+  @include flex(1);
+  @include center;
   height: 80vh;
-  flex: 1;
-  display: flex;
   .arrow {
     padding: 10px;
     border-radius: 100px;
@@ -145,9 +136,7 @@
     min-width: 40px;
     height: 40px;
     background-color: #fff8;
-    &:hover {
-      cursor: pointer;
-    }
+    @include pointer;
     &.left {
       transform: rotate(180deg);
     }
@@ -155,8 +144,7 @@
 }
 
 .BDList-container {
-  display: flex;
-  flex: 3;
+  @include flex(3);
   margin: 10px;
   border-radius: 10px;
   padding: 2.5rem 5rem;
@@ -169,7 +157,7 @@ body {
   background-color: #000;
 }
 .BD-container {
-  display: flex;
+  @include flex(null);
   width: 20%;
   text-decoration: none;
   padding: 15px 20px;

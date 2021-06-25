@@ -1,3 +1,5 @@
+@import './reusable_styles.scss';
+
 .Sidebar {
   color: #fff;
   flex: 1;
@@ -7,13 +9,11 @@
   padding: 20px 25px;
   background-color: #000;
   .bluebox {
-    display: flex;
+    @include flex(1);
+    @include center;
     flex-direction: column;
-    justify-content: center;
     background-color: #51aabc;
-    align-items: center;
     border-radius: 14px;
-    flex: 1;
     margin-bottom: 20px;
     padding: 20px 40px;
     span {
@@ -28,9 +28,8 @@
     margin-bottom: 1.4rem;
   }
   .BD-sidebar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(null);
+    @include center;
     flex-direction: column;
     padding: 15% 0px 5px 0px;
     img {
@@ -45,10 +44,10 @@
     }
   }
   .hoopow_menu {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+    @include flex(null);
+    @include center;
     margin-bottom: 20px;
+    @include pointer;
     .menu {
       padding: 20px 15px;
       margin-right: 20px;
@@ -59,14 +58,12 @@
   .buttons_container {
     padding-top: 10%;
     .share_button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flex(null);
+      @include center;
       flex-direction: column;
       padding-bottom: 30px;
-      &:hover {
-        cursor: pointer;
-      }
+      @include pointer;
+
       img {
         width: 60px;
         height: 60px;
@@ -80,14 +77,10 @@
     }
 
     .button {
-      &:hover {
-        cursor: pointer;
-      }
+      @include flex(null);
+      @include center;
+      @include pointer;
       text-decoration: none;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
       border: 2px #fff solid;
       border-radius: 42px;
       padding: 13px 28px;
@@ -120,6 +113,8 @@
     .subscribe_button {
       background-color: #ffc600;
       padding: 0px 5px;
+      @include pointer;
+
       font-size: 27px;
     }
     .image_container {
@@ -132,6 +127,7 @@
         position: absolute;
         left: 40px;
         bottom: 35%;
+        @include pointer;
         font-size: 17px;
       }
     }

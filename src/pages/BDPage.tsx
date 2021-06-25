@@ -102,7 +102,7 @@ export default function BDPage(props: { BDList: BD_List_TYPE }) {
 
   return (
     <ReactFullscreen>
-      {({ ref, onRequest, onExit }) =>
+      {({ ref, onRequest, onExit, isEnabled }) =>
         fullscreen ? (
           <div id={'fullscreen'}>
             <Previous />
