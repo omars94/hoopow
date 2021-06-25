@@ -47,8 +47,12 @@ export default function BDPage(props: { BDList: BD_List_TYPE }) {
     const fetchBD = async () => {
       try {
         const response = await axios({
-          url: 'https://api.jsonbin.io/b/60d15d485ed58625fd1658cb',
+          url: 'https://api.jsonbin.io/b/60d016ed8a4cd025b7a209f3',
           method: 'get',
+          headers: {
+            'secret-key':
+              '$2b$10$CpVUDj0M04SrpvTHOlz0Kup12rM2KFWDtuEf.wpY5HwYB6BBSrfCS',
+          },
         });
         setBD(response.data);
       } catch (e) {
