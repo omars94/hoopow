@@ -1,5 +1,6 @@
 import { BD } from '../components';
 import '../App.scss';
+import '../styles/BD_styles.scss';
 import { HomeSideBar } from '../components/sidebar';
 import { BD_List_TYPE } from '../types';
 

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import '../App.scss';
+import '../styles/BD_styles.scss';
 import close_fullscreen from '../assets/close_fullscreen.svg';
 import { BDSideBar, getImageLink, BD } from '../components';
 import arrow from '../assets/arrow.svg';
@@ -66,7 +67,9 @@ export default function BDPage(props: { BDList: BD_List_TYPE }) {
   const Previous = () => {
     return (
       <div
-        className={'arrow-container ' + (selectedImage !== 0 ? '' : 'disable')}
+        className={`arrow-container  ${!selectedImage ? 'disable' : ''} ${
+          fullscreen ? 'fullscreen_arrow-container' : ''
+        }`}
       >
         <img
           onKeyPress={(event) => console.log(event)}
@@ -78,28 +81,25 @@ export default function BDPage(props: { BDList: BD_List_TYPE }) {
       </div>
     );
   };
-  const Next = ({ showList = false }) => {
+  const BD_LIST = () => {
     return (
-      <div className={'arrow-container BD-list arrow-fullscreen'}>
-        {selectedImage !== bdImage.length - 1 ? (
-          <img
-            onKeyPress={(event) => console.log(event)}
-            onClick={next}
-            src={arrow}
-            alt="next"
-            className="arrow"
-          />
-        ) : (
-          showList && (
-            <div className="BD-list overlay">
-              {props.BDList.map((item, index) => (
-                <Link key={index} className="BD-right" to={'/BD?bd=' + item.id}>
-                  <BD {...item} key={index} />
-                </Link>
-              ))}
-            </div>
-          )
-        )}
+      <div className="arrow-container">
+        <div className={`BD-list ${fullscreen ? 'fullscreen_BD-list' : ''}`}>
+          <div className="overlay">
+            {props.BDList.map((item, index) => (
+              <Link key={index} className="BD-right" to={'/BD?bd=' + item.id}>
+                <BD {...item} key={index} />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
+  const Next = () => {
+    return (
+      <div className="arrow-container arrow-fullscreen">
+        <img onClick={next} src={arrow} alt="next" className="arrow" />
       </div>
     );
   };
@@ -108,7 +108,7 @@ export default function BDPage(props: { BDList: BD_List_TYPE }) {
     <ReactFullscreen>
       {({ ref, onRequest, onExit, isEnabled }) =>
         fullscreen ? (
-          <div id={'fullscreen'}>
+          <div className={'fullscreen'}>
             <Previous />
             <img
               src={close_fullscreen}
@@ -126,7 +126,7 @@ export default function BDPage(props: { BDList: BD_List_TYPE }) {
                 className="image"
               />
             )}
-            <Next />
+            {selectedImage !== bdImage.length - 1 ? <Next /> : <BD_LIST />}
           </div>
         ) : (
           <>
@@ -139,12 +139,20 @@ export default function BDPage(props: { BDList: BD_List_TYPE }) {
               selectedImage={selectedImage}
             />
             <div className="BDPage-container">
-              <div className="top-bar">
-                <span className="for_free">Disponible gratuitement :</span>
-                <span className="BD_DU_JOUR">LA BD DU JOUR</span>
-              </div>
+              {false && (
+                <div className="top-bar">
+                  <span className="for_free">Disponible gratuitement :</span>
+                  <span className="BD_DU_JOUR">LA BD DU JOUR</span>
+                </div>
+              )}
               <Previous />
-              <div className="slide-container">
+              <div
+                className="slide-container"
+                style={{
+                  paddingRight:
+                    selectedImage === bdImage.length - 1 ? '20%' : '0%',
+                }}
+              >
                 {bdImage.length > 0 && (
                   <img
                     src={getImageLink(bdImage[selectedImage].bdImageFr)}
@@ -164,8 +172,9 @@ export default function BDPage(props: { BDList: BD_List_TYPE }) {
                     />
                   ))}
                 </div>
+                {selectedImage === bdImage.length - 1 && <BD_LIST />}
               </div>
-              <Next showList={true} />
+              {selectedImage !== bdImage.length - 1 && <Next />}
             </div>
           </>
         )

@@ -1,5 +1,7 @@
 import { getImageLink } from './helpers';
 import { Link } from 'react-router-dom';
+import '../styles/BD_styles.scss';
+
 interface Props {
   publicationDate: string;
   name: string;
