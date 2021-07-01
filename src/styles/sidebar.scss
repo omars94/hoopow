@@ -7,7 +7,7 @@ $desktop: 1024px;
 .hoopow_menu {
   @include flex(null);
   @include center;
-  margin-bottom: 20px;
+  margin-bottom: 5%;
   @include pointer;
   .menu {
     padding: 7.5% 5%;
@@ -74,12 +74,14 @@ $desktop: 1024px;
     @include center;
     flex-direction: column;
     padding: 5% 0px 1% 0px;
+    @media (max-width: $desktop) {
+    }
     img {
       width: 80%;
       height: 100%;
       border-radius: 5px;
       @media (max-width: $desktop) {
-        width: 100%;
+        width: 50%;
       }
     }
     span {
